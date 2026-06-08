@@ -2,109 +2,219 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#f4f7fa;
-    color:#333;
-    line-height:1.6;
-}
-
-.container{
-    width:90%;
-    max-width:1100px;
-    margin:auto;
-}
-
-header{
-    background:#0f172a;
+    background:#050816;
     color:white;
+    overflow-x:hidden;
+}
+
+.bg-animation{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at 20% 30%,#3b82f655,transparent 25%),
+    radial-gradient(circle at 80% 20%,#8b5cf655,transparent 25%),
+    radial-gradient(circle at 50% 80%,#06b6d455,transparent 25%);
+    z-index:-1;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 10%;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.glass-card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:25px;
+    padding:40px;
+}
+
+.hero .glass-card{
+    max-width:850px;
     text-align:center;
-    padding:60px 20px;
 }
 
-header h1{
-    font-size:3rem;
+.tag{
+    background:#3b82f6;
+    padding:10px 18px;
+    border-radius:50px;
+    font-size:14px;
 }
 
-header p{
-    margin-top:10px;
-    font-size:1.2rem;
-}
-
-.contact{
+h1{
+    font-size:70px;
     margin-top:20px;
 }
 
-.contact a{
-    color:white;
+h2{
+    color:#60a5fa;
+    margin-top:10px;
+}
+
+.hero p{
+    margin-top:20px;
+    color:#d1d5db;
+}
+
+.hero-buttons{
+    margin-top:30px;
+}
+
+.btn{
     text-decoration:none;
-    margin:0 10px;
+    padding:14px 30px;
+    border-radius:50px;
+    margin:10px;
+    display:inline-block;
+}
+
+.primary{
+    background:#3b82f6;
+    color:white;
+}
+
+.secondary{
+    border:1px solid #3b82f6;
+    color:white;
 }
 
 section{
-    padding:60px 0;
+    padding:100px 10%;
 }
 
-h2{
+.section-title{
     text-align:center;
-    margin-bottom:30px;
-    color:#0f172a;
+    font-size:40px;
+    margin-bottom:50px;
+    font-weight:700;
 }
 
-.skill-grid{
+.skills-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    gap:25px;
 }
 
-.card{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+.skill{
     text-align:center;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.job{
-    background:white;
     padding:25px;
-    border-radius:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    transition:.4s;
 }
 
-.job h3{
-    color:#2563eb;
+.skill:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px #3b82f6;
 }
 
-.job span{
-    display:block;
-    margin-bottom:15px;
-    color:#666;
-}
-
-.job ul{
-    padding-left:20px;
-}
-
-.education-card{
-    max-width:400px;
+.timeline{
+    position:relative;
+    max-width:1000px;
     margin:auto;
 }
 
-#contact{
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    width:3px;
+    height:100%;
+    background:#3b82f6;
+}
+
+.timeline-item{
+    margin-bottom:60px;
+}
+
+.year{
+    text-align:center;
+    margin-bottom:20px;
+    color:#60a5fa;
+    font-weight:600;
+}
+
+.contact-card{
     text-align:center;
 }
 
+.contact-card h3{
+    margin-top:20px;
+    color:#60a5fa;
+}
+
 footer{
-    background:#0f172a;
-    color:white;
     text-align:center;
-    padding:20px;
+    padding:30px;
+    color:#9ca3af;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:768px){
+
+    h1{
+        font-size:42px;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .timeline::before{
+        display:none;
+    }
+
 }
